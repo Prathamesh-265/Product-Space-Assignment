@@ -1,11 +1,18 @@
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import Database from "better-sqlite3";
-import * as schema from "./schema/index.js";
+import "dotenv/config";
+import app from "./app.js";
+import { seedDemoUser } from "./seedDemo.js";
 
-const dbPath = process.env.DATABASE_PATH ?? "./taskflow.db";
+const port = Number(process.env.PORT ?? 3000);
 
-const sqlite = new Database(dbPath);
+process.on("uncaughtException", (err) => {
+  console.error("UNCAUGHT ERROR:", err);
+});
 
-export const db = drizzle(sqlite, { schema });
+process.on("unhandledRejection", (err) => {
+  console.error("UNHANDLED PROMISE:", err);
+});
 
-export * from "./schema/index.js";
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+  seedDemoUser().catch((e) => console.error("SEED ERROR:", e));
+});
