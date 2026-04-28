@@ -1,23 +1,36 @@
 # TaskFlow
 
-A mini-SaaS task management app with email/password auth (JWT + bcrypt),
-per-user task CRUD, dashboard stats, and a polished React UI.
+A mini-SaaS task management application featuring secure authentication, per-user task management, real-time dashboard insights, and a polished modern UI.
 
-Built for the Full Stack Developer Intern screening test.
+Built as part of a **Full Stack Developer Intern screening assignment**.
 
-## Demo account
+---
 
-Click **"Try the demo account"** on the sign-in page to log in instantly.
-Credentials: `demo@taskflow.app` / `demo1234` — auto-seeded on first server start.
+## 🌐 Live Demo
 
-## Project structure
+- **Frontend:** https://product-space-assignment.vercel.app  
+- **Backend:** https://product-space-assignment-qngn.onrender.com  
 
-```
-taskflow/
-├── server/   Express + Drizzle + JWT backend (port 3000)
-├── client/   React + Vite + Tailwind frontend (port 5173)
-└── package.json   Runs both with one command
-```
+---
+
+## 🔐 Demo Account
+
+Use the built-in demo account:
+
+- **Email:** `demo@taskflow.app`  
+- **Password:** `demo1234`  
+
+Or click **“Try Demo Account”** on the login page.
+
+> Demo data is automatically seeded on server start.
+
+---
+
+## 📁 Project Structure
+
+Task-Master-Pro/
+├── server/ Express + Drizzle + SQLite backend
+├── client/ React + Vite + Tailwind frontend
 
 ## Tech stack
 
@@ -25,6 +38,33 @@ taskflow/
 - **Frontend:** React 19, Vite, Tailwind v4, shadcn/ui, TanStack Query, React Hook Form, Framer Motion, wouter
 - **Tooling:** TypeScript, tsx, drizzle-kit
 
+## ✨ Features Implemented
+
+### 🔐 Authentication
+- Secure signup & login
+- JWT-based authentication
+- Password hashing using bcrypt
+
+### 📝 Task Management
+- Create, update, delete tasks
+- Status tracking (pending/completed)
+- Priority management (low/medium/high)
+- Per-user task isolation
+
+### 📊 Dashboard
+- Task summary statistics
+- Filter by status, priority, search
+- Real-time updates using React Query
+
+### 🎨 UI/UX
+- Responsive design (mobile-first)
+- Smooth animations (Framer Motion)
+- Clean, modern interface (shadcn + Tailwind)
+
+### 🌐 API
+- RESTful API design
+- Protected routes using JWT
+- Input validation using Zod
 ## Run it locally (3 steps)
 
 ### Prerequisites
