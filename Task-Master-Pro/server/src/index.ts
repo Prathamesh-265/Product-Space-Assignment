@@ -1,14 +1,18 @@
-import "dotenv/config";
-import app from "./app.js";
-import { seedDemoUser } from "./seedDemo.js";
+import { drizzle } from "drizzle-orm/better-sqlite3";
+import Database from "better-sqlite3";
+import * as schema from "./schema/index.js";
+import fs from "fs";
+import path from "path";
 
-const port = Number(process.env.PORT ?? 3000);
+const dbPath = process.env.DATABASE_PATH ?? "./taskflow.db";
 
-if (Number.isNaN(port) || port <= 0) {
-  throw new Error(`Invalid PORT value: "${process.env.PORT}"`);
+const dir = path.dirname(dbPath);
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir, { recursive: true });
 }
 
-app.listen(port, () => {
-  console.log(`TaskFlow API listening on http://localhost:${port}`);
-  void seedDemoUser();
-});
+const sqlite = new Database(dbPath);
+
+export const db = drizzle(sqlite, { schema });
+
+export * from "./schema/index.js";
