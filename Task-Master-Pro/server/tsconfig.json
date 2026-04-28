@@ -10,8 +10,15 @@
     "resolveJsonModule": true,
     "outDir": "dist",
     "rootDir": ".",
-    "types": ["node"],
-    "lib": ["ES2022"]
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "ES2022"
+    ]
   },
-  "include": ["src", "drizzle.config.ts"]
+  "include": [
+    "src",
+    "drizzle.config.ts"
+  ]
 }
